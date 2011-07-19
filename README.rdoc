@@ -1,22 +1,21 @@
-= campaign_monitor_subscriber
-
-http://github.com/mpowered/campaign_monitor_subscriber
-
 == DESCRIPTION:
 
-Automatically push/delete a model's email address to a Campaign Monitor mailing when the model is created or destroyed.
+Automatically push/delete a model's email address and custom-fields to a Campaign Monitor mailing when the model is created or destroyed.
 
 == FEATURES:
 
-* Push email addresses to CM on create
+* Push email addresses and custom fields to CM on create
 * Delete email address from CM on destroy
 
 == SYNOPSIS:
 
-Specify the model's email address field name:
+Specify the model's email address field name. You can also pass additional custom fields:
+
   Class User < ActiveRecord::Base
-    subscribe_me_using :email
+    subscribe_me_using :email, {"name" => "full_name", "UserStatus" => "get_status"}
   end
+
+This will call `full_name` and `get_status` methods on record which was created using `send`.
 
 Set the list id & api key in config/campaign_monitor_subscriber_config.yml:
   list_id: 12oeu0089oe8gf9794oe498587o5
@@ -31,7 +30,10 @@ Thats it!
 
 == INSTALL:
 
-  gem install campaign_monitor_subscriber
+Just add this to your Gemfile:
+  gem 'campaigning', '0.15.0' 
+  gem 'campaign_monitor_subscriber', :git => "git@github.com:anwajler/campaign_monitor_subscriber.git", :branch => "rails3"
+
 
 == LICENSE:
 
