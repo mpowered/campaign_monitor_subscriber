@@ -4,7 +4,7 @@ module CampaignMonitorSubscriber
   ::CAMPAIGN_MONITOR_API_KEY = CM_CONFIG['api_key']  
 
   def subscribe_me_using(email_field, custom_fields={})
-    return if CM_CONFIG[::Rails.env] == false
+    return if CM_CONFIG[::Rails.env] == false or %w(cucumber test).include? ::Rails.env
     after_create do |record|
       begin
         custom_fields = custom_fields.inject({}) { |h, (k, v)| h[k] = record.send(v); h }
