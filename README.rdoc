@@ -46,7 +46,7 @@ Thats it!
 
 == REQUIREMENTS:
 
-* creatsend gem
+* createsend gem
 
 == INSTALL:
 
