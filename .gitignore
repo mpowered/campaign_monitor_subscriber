@@ -1,5 +1,6 @@
 .DS_Store
 .autotest
+Gemfile.lock
 pkg/*
 test/*
 bin/*
