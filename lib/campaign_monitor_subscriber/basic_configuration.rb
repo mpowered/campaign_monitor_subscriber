@@ -10,7 +10,7 @@ module CampaignMonitorSubscriber
       # All yaml config is namespaced under the environment name (the same way
       # database.yml does it)
       def raw_cms_config
-        @raw_cms_config ||= YAML::load_file(File.join("config/campaign_monitor_subscriber.yml"))[::Rails.env]
+        @raw_cms_config ||= YAML.load(ERB.new(File.read("config/campaign_monitor_subscriber.yml")).result)[Rails.env]
       end
   end
 end
