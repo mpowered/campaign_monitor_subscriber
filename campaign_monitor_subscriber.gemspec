@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "campaign_monitor_subscriber"
-  s.version     = '1.0.3'
+  s.version     = '1.0.4'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Gary Greyling"]
   s.email       = ["gary@mpowered.co.za"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency 'createsend', '>= 1.0.4'
+  s.add_dependency 'createsend', '~> 2.0'
   s.add_development_dependency 'active_support', '>= 3.0.0'
   s.add_development_dependency 'rspec'
 
