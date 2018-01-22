@@ -7,7 +7,7 @@ module CampaignMonitorSubscriber
 
     included do
       require 'logger'
-      @@log = Logger.new('log/cm_subscriber.log')
+      @@log = Logger.new(ENV['CAMPAIGN_MONITOR_SUBSCRIBER_LOG'] || 'log/cm_subscriber.log')
 
       after_create do |record|
         @@log.debug "\n* Adding '#{record.cms_email}' to CM"
